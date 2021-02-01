@@ -1,2 +1,7 @@
-export const port = process.env.PORT || 8090;
-export const appRoute = '/starter';
+const config = {
+  port: process.env.PORT || 8090,
+  appRoute: '/starter',
+  skipLogging: true
+};
+
+export default config;
