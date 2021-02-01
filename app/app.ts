@@ -5,7 +5,6 @@ import {port, appRoute} from './config';
 import routes from './routes';
 import path from 'path';
 
-
 const app = express();
 
 app.use(helmet());
@@ -19,4 +18,4 @@ app
 .listen(port, () => console.info(`server running on port : http://localhost:${port}/starter/sales-desk`))
 .on('error', (e) => console.error(e));
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use('/static', express.static(path.join(__dirname, '../public')));
