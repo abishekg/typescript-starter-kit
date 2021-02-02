@@ -1,7 +1,8 @@
 const config = {
   port: process.env.PORT || 8090,
   appRoute: '/starter',
-  skipLogging: true
+  skipLogging: true,
+  environment: 'dev'
 };
 
 export default config;
