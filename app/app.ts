@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import createContext from './middleware/create-context';
+import notFoundHandler from './middleware/not-found-handler';
 import config from './config';
 import routes from './routes';
 import path from 'path';
@@ -34,5 +35,8 @@ if (!config.skipLogging) {
 }
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.use(notFoundHandler);
+
 
 export default app;
