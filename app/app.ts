@@ -11,7 +11,6 @@ const app = express();
 
 app.use(helmet());
 
-app.use(config.appRoute, routes);
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 50000 }));
@@ -26,6 +25,8 @@ if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'pact') {
 }
 
 app.use(createContext);
+
+app.use(config.appRoute, routes);
 
 if (!config.skipLogging) {
   //Will have to add logger middleware
