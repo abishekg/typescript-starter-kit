@@ -11,7 +11,6 @@ export const handleSession = (req: customExpressRequest, res: Response, next: Ne
     }
     req.setSession = setSession(req);
     Promise.all([redis.getSession(req)]).then(([appSession]) => {
-        console.log('>>> appSession', appSession);
         return next();
     }).catch(error => {
         return handleNoSession(req, res, next, error);
