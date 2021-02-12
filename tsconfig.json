@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "build",
-    "baseUrl": "./app",
+    "baseUrl": ".",
     "typeRoots": [
       "app/@types",
       "./node_modules/@types"
@@ -28,9 +28,6 @@
       "*.d.ts"
     ],
     "paths": {
-      "app/*": [
-        "./app/*"
-      ],
       "*": [
         "node_modules/*",
         "src/types/*"

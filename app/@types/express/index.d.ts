@@ -1,5 +1,7 @@
 import { Request } from "express";
+import {setSession} from '../../middleware/session';
 
 export interface customExpressRequest extends Request {
-    context?: object;
+    context?: object,
+    setSession: any
 }

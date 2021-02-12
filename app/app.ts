@@ -5,12 +5,13 @@ import helmet from 'helmet';
 import createContext from './middleware/create-context';
 import config from './config';
 import routes from './routes';
+import {handleSession} from './middleware/session';
 import path from 'path';
+import {customExpressRequest} from "./@types/express";
 
 const app = express();
 
 app.use(helmet());
-
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 50000 }));
@@ -25,6 +26,13 @@ if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'pact') {
 }
 
 app.use(createContext);
+
+app.use(handleSession);
+
+app.use('/', async (req: customExpressRequest, res, next) => {
+  await req.setSession('c', 'chair');
+  next();
+})
 
 app.use(config.appRoute, routes);
 
