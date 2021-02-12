@@ -1,4 +1,4 @@
-import express, {Request, Response, NextFunction} from 'express';
+import {Response, NextFunction} from 'express';
 import {customExpressRequest} from '../@types/express';
 
 const createContext = (req: customExpressRequest, res: Response, next: NextFunction) => {
