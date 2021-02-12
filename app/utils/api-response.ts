@@ -58,24 +58,19 @@ export class InternalErrorResponse<T> extends ApiResponse {
   }
 }
 
+export class NotFoundResponse extends ApiResponse {
+  constructor(message = 'Not Found') {
+    super(ResponseStatus.NOT_FOUND, message);
+  }
+}
+
 export class AuthFailureResponse extends ApiResponse {
   constructor(message = 'Authentication Failure') {
     super(ResponseStatus.UNAUTHORIZED, message);
   }
 }
 
-export class NotFoundResponse extends ApiResponse {
-  private url: string | undefined;
 
-  constructor(message = 'Not Found') {
-    super(ResponseStatus.NOT_FOUND, message);
-  }
-
-  send(res: Response): Response {
-    this.url = res.req?.originalUrl;
-    return super.prepare<NotFoundResponse>(res, this);
-  }
-}
 
 export class ForbiddenResponse extends ApiResponse {
   constructor(message = 'Forbidden') {

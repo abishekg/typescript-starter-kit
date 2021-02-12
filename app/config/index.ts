@@ -11,7 +11,7 @@ const config = {
   appRedisSessionKey: 'apollo_app_session',
   redisKeyExpiry: 1800,
   redirectURL: 'http://localhost:8090/signin?redirect=',
-    environment: 'dev'
+  environment: 'dev'
 };
 
 export default config;
